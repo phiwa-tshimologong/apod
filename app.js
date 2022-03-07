@@ -1,9 +1,9 @@
 const renderData = document.getElementById('renderData');
 
 
-
+let date = '';
 // eslint-disable-next-line no-undef
-const APP_URL = `https://api.nasa.gov/planetary/apod?date=&api_key=${API_KEY}`;
+let APP_URL = `https://api.nasa.gov/planetary/apod?date=${date}&api_key=${API_KEY}`;
 
 
 const getApodPicture = (APP_URL) =>{
@@ -30,6 +30,18 @@ const processApodData = data =>{
     renderData.appendChild(apodImg); 
     renderData.appendChild(apodDescription);
 };
+
+const form = document.getElementById('filterDate');
+form.addEventListener('submit', (e) =>{
+    // console.log(form.elements['dob'].value);
+
+    date = form.elements['dob'].value;
+    renderData.innerHTML = '';
+    // eslint-disable-next-line no-undef
+    APP_URL = `https://api.nasa.gov/planetary/apod?date=${date}&api_key=${API_KEY}`;
+    getApodPicture(APP_URL);
+    e.preventDefault();
+});
 
 // eslint-disable-next-line no-undef
 window.onload = getApodPicture(APP_URL);
