@@ -41,7 +41,7 @@ nav h1{
 .search{
     margin: 1rem auto;
     text-align: center;
-    width: fit-content;
+    max-width: fit-content;
 }
 form{
     font-size: 0;
@@ -56,6 +56,10 @@ form input{
     border: none;
     border-bottom: #004b4b solid 2px;
     background-color: #f1f1f1;
+}
+form input:focus{
+    box-shadow: none;
+    outline: none;
 }
 form input::placeholder{
     color: #d1d1d1;
@@ -80,5 +84,5 @@ form button:hover{
 .err{
     text-align: start;
     height: 1.2rem;
-
+    text-align: center;
 }
